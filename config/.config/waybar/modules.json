@@ -1,0 +1,106 @@
+{
+
+    "custom/separator": {
+        "format": " |"
+    },
+
+
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "tooltip": true,
+        "tooltip-format": "{:%a, %D}",
+        "on-click": "hyprctl dispatch exec '[float; size 500 280] kitty -e tty-clock -c'"
+    },
+    "backlight": {
+        "scroll-step" : 1,
+        "format": "{icon} {percent}%",
+        "tooltip": false,
+        "format-icons": ["","","","","","","","","","","","","","",""]
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}  {volume}%",
+        "format-icons": ["", "", ""],
+        "tooltip-format": "{desc}",
+        "on-click": "pavucontrol"
+    },
+
+
+
+    "hyprland/workspaces": {
+      "on-click": "activate",
+      "format": "{name}",
+      "sort-by-number": true,
+      "persistent-only": true,
+      "persistent-workspaces": {
+        "DP-2": [1,2,3,4,5],
+        "HDMI-A-1": [6,7,8]
+      }
+    },
+  
+
+
+    "custom/exit": {
+        "format": "",
+        "tooltip-format": "Power menu",
+        "on-click": "~/.config/waybar/scripts/power.sh"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip-format-charging": "Health: {health}\n{timeTo}",
+        "tooltip=format": "Health: {health}"
+    },
+    "network": {
+        "format-wifi": "{essid}  ",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": " ⚠ ",
+        "tooltip-format": "{frequency} GHz | {signalStrength}% Strength\n{ifname} via {gwaddr}",
+        "tooltip-format-ethernet": "{ifname} via {gwaddr}\n{cidr} IP(V4)",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+    "bluetooth": {
+        "format-on": "󰂰",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂰",
+        "tooltip": true,
+        "tooltip-format-on": "Active",
+        "tooltip-format-off": "Disabled",
+        "tooltip-format-connected": "{device_alias}    {device_battery_percentage}%",
+        "interval": 30,
+        "on-click": "blueman-manager"
+    },
+    "hyprland/language": {
+        "format": "  {short}"
+    },
+    "temperature": {
+        "interval": 30,
+        "format": "{temperatureC}° {icon}",
+        "tooltip": false,
+        "critical-threshold": 90,
+        "format-icons": ["","","","",""]
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{percentage}% ",
+        "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
+        "states": {
+            "warning": 80,
+            "critical": 90
+        }
+    },
+    "cpu": {
+        "interval": 30,
+        "format":"{usage}% ",
+        "states": {
+            "warning": 80,
+            "critical": 90
+        }
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "spacing": 6,
+    "height": 26,
+    "layer": "top",
+    "reload_style_on_change": true,
+
+    "group/left": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+            // "backlight", 
+            "pulseaudio"
+        ]
+    },
+
+    "group/lang": {
+        "orientation": "horizontal",
+        "modules": [
+            "hyprland/language"
+        ]
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature",
+            "battery"
+        ]
+    },
+
+    "group/right": {
+        "orientation": "horizontal",
+        "modules": [
+            "bluetooth",
+            "network"
+        ]
+    },
+
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/exit"
+        ]
+    },
+
+    "modules-left": [
+        "group/left",
+        "group/lang"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/hardware",
+        "group/right",
+        "group/power"
+    ],
+    
+    "include": [ "~/.config/waybar/modules.json" ]
+}

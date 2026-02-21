@@ -1,0 +1,32 @@
+# General
+sort=-time
+layer=overlay
+anchor=top-right
+
+# Appearance
+font=JetBrains Mono 10
+background-color=#4d4b4b0b
+text-color=#eceff4
+border-color=#88c0d0
+border-size=2
+border-radius=15
+margin=10
+padding=10
+width=350
+height=100
+max-visible=5
+default-timeout=3000
+
+# Icons
+icons=1
+max-icon-size=36
+icon-path=/usr/share/icons/Qogir-Dark
+
+# Markup
+markup=1
+format=<b>%s</b>\n%b
+
+# Actions
+actions=1
+
+include=~/.cache/wal/colors-mako

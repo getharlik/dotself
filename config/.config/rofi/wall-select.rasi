@@ -1,0 +1,108 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+/* ---- Global Properties ---- */
+* {
+    font:                        "JetBrainsMono Nerd Font 12";
+
+    bg:                          @background;
+    fg:                          @foreground;
+    bg-alt:                      @color1;
+    fg-alt:                      @color7;
+    accent:                      @color5;
+    accent-bright:               @color13;
+    urgent:                      @color3;
+    urgent-bright:               @color11;
+    selection-bg:                @color2;
+    selection-fg:                @foreground;
+    border-col:                  @color4;
+    border-col-bright:           @color12;
+    separator:                   @color8;
+
+    border-rad:                  20px;
+}
+
+/* ---- Window ---- */
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    width:                       925px;
+    height:                      222px;
+    border-radius:               @border-rad;
+    background-color:           rgba(45, 45, 45, 0.3);
+}
+
+/* ---- Main Layout ---- */
+mainbox {
+    transparency:                "real";
+    background-color:            transparent;
+    children:                    [ listview, inputbar ];
+}
+
+/* ---- Inputbar ---- */
+inputbar {
+    enabled:                     true;
+    width:                       0;
+    spacing:                     0;
+    padding:                     0;
+    children:                    [ entry ];
+    background-color:            transparent;
+    expand:                      false;
+}
+
+entry {
+    enabled:                     false;
+}
+
+/* ---- Listview ---- */
+listview {
+    cycle:                       true;
+    dynamic:                     false;
+    scrollbar:                   false;
+    layout:                      horizontal;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     4px;
+    padding:                     24px;
+    border:                      0;
+    background-color:            transparent;
+}
+
+/* ---- Elements ---- */
+element {
+    spacing:                     8px;
+    padding:                     16px;
+    border:                      0px;
+    border-radius:               14px;
+    background-color:            transparent;
+    orientation: vertical;
+    text-color:                  @fg-alt;
+    cursor:                      pointer;
+    background-color:            transparent;
+}
+
+element selected {
+    background-color:            @selection-bg;
+    text-color:                  @bg;
+    border-radius:               8px;
+}
+
+element-text {
+    enabled:                     false;
+    horizontal-align:            0.5;
+    text-color:                  inherit;
+    background-color:            transparent;
+}
+
+element-icon {
+    size:                        140px;
+    squared:                     false;
+    border-radius:               8px;
+    horizontal-align:            0.5;
+    background-color:            transparent;
+}

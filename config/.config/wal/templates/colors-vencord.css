@@ -1,0 +1,28 @@
+/*
+ *      _______  ________  ________  ________  ________ 
+ *    ╱╱       ╲╱    ╱   ╲╱        ╲╱        ╲╱        ╲
+ *   ╱╱        ╱         ╱    ╱    ╱    ╱    ╱         ╱
+ *  ╱       --╱         ╱         ╱        _╱   ╱  ╱  ╱ 
+ *  ╲________╱╲___╱____╱╲___╱____╱╲____╱___╱╲__╱__╱__╱  
+ *
+ *
+ * One of the lucky charm.
+ *
+ * Vencord theme colors template.
+*/
+
+* {
+    --bg:                          {background};
+    --fg:                          {foreground};
+    --bg-alt:                      {color1};
+    --fg-alt:                      {color7};
+    --accent:                      {color5};
+    --accent-bright:               {color13};
+    --urgent:                      {color3};
+    --urgent-bright:               {color11};
+    --selection-bg:                {color2};
+    --selection-fg:                {foreground};
+    --border-col:                  {color4};
+    --border-col-bright:           {color12};
+    --separator:                   {color8};
+}

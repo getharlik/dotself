@@ -1,0 +1,4 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
+SETUVAR __fish_initialized:4300

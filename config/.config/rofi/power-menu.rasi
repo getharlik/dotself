@@ -1,0 +1,84 @@
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+/* ---- Global Properties ---- */
+* {
+    font:                        "JetBrainsMono Nerd Font 12";
+
+    bg:                          @background;
+    fg:                          @foreground;
+    bg-alt:                      @color1;
+    fg-alt:                      @color7;
+    accent:                      @color5;
+    accent-bright:               @color13;
+    urgent:                      @color3;
+    urgent-bright:               @color11;
+    selection-bg:                @color2;
+    selection-fg:                @foreground;
+    border-col:                  @color4;
+    border-col-bright:           @color12;
+    separator:                   @color8;
+
+    border-rad:                  20px;
+}
+
+/* ---- Window ---- */
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    width:                       250px;
+    border-radius:               @border-rad;
+    background-color:            rgba(45, 45, 45, 0.3);
+}
+
+/* ---- Main Layout ---- */
+mainbox {
+    transparency:                "real";
+    background-color:            transparent;
+    children:                    [ inputbar, listview ];
+}
+
+inputbar {
+    enabled:                     false;
+}
+
+/* ---- Listview ---- */
+listview {
+    transparency:                "real";
+    background-color:            transparent;
+    columns:                     1;
+    lines:                       3;
+    spacing:                     5px;
+    padding:                     24px;
+    cycle:                       true;
+    dynamic:                     false;
+    layout:                      vertical;
+    text-color:                  @fg;
+}
+
+
+/* ---- Elements ---- */
+element {
+    spacing:                     8px;
+    padding:                     0.45em 0.5em 0.5em 1em;
+    border-radius:               14px;
+    text-color:                  @fg-alt;
+    background-color:            transparent;
+    cursor:                      pointer;
+}
+
+element selected {
+    background-color:            @selection-bg;
+    text-color:                  @fg;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element-icon {
+    enabled:                     false;
+}
+

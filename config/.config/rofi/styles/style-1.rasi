@@ -1,0 +1,136 @@
+/*
+ *      _______  ________  ________  ________  ________ 
+ *    ╱╱       ╲╱    ╱   ╲╱        ╲╱        ╲╱        ╲
+ *   ╱╱        ╱         ╱    ╱    ╱    ╱    ╱         ╱
+ *  ╱       --╱         ╱         ╱        _╱   ╱  ╱  ╱ 
+ *  ╲________╱╲___╱____╱╲___╱____╱╲____╱___╱╲__╱__╱__╱  
+ *
+ * One of the lucky charm.
+ *
+ * Rofi Style - HyprDots Inspired
+ * Uses pywal16 colors from custom colors-rofi-dark.rasi template.
+*/
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+/* ---- Global Properties ---- */
+* {
+    font:                        "JetBrainsMono Nerd Font 12";
+
+    bg:                          @background;
+    fg:                          @foreground;
+    bg-alt:                      @color1;
+    fg-alt:                      @color7;
+    accent:                      @color5;
+    accent-bright:               @color13;
+    urgent:                      @color3;
+    urgent-bright:               @color11;
+    selection-bg:                @color2;
+    selection-fg:                @foreground;
+    border-col:                  @color4;
+    border-col-bright:           @color12;
+    separator:                   @color8;
+
+    border-rad:                  20px;
+}
+
+/* ---- Window ---- */
+window {
+    enabled:                     true;
+    width:                       300px;
+    height:                      430px;
+    padding:                     0px;
+    border-radius:               @border-rad;
+    transparency:                "real";
+    background-color:            rgba(45,45,45, 0.3);
+}
+
+/* ---- Main Layout ---- */
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     0px;
+    orientation:                 horizontal;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/* ---- Inputbar ---- */
+inputbar {
+    enabled:                     true;
+    width:                       0;
+    spacing:                     0;
+    padding:                     0;
+    children:                    [ "entry" ];
+    expand:                      false;
+    background-color:            transparent;
+    border-radius:               14px 0 0 14px;
+}
+
+entry {
+    enabled:                     false;
+}
+
+
+/* ---- Listview ---- */
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     4px;
+    padding:                     24px;
+    border:                      0;
+    background-color:            transparent;
+}
+
+/* ---- Elements ---- */
+element {
+    enabled:                     true;
+    spacing:                     8px;
+    padding:                     0.5em 0.5em 0.5em 1em;
+    border:                      0px;
+    border-radius:               14px;
+    background-color:            transparent;
+    text-color:                  @fg-alt;
+    cursor:                      pointer;
+}
+
+element selected.normal {
+    background-color:            @selection-bg;
+    text-color:                  @fg;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element-icon {
+    size:                        22px;
+    margin:                      0 6px 0 0;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+}
+
+/* Error message */
+error-message {
+    text-color:                  @fg;
+    background-color:            @bg;
+    text-transform:              capitalize;
+    children:                    [ "textbox" ];
+}
+
+textbox {
+    text-color:                  inherit;
+    background-color:            inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

@@ -1,0 +1,29 @@
+{
+    "checksum": "7700f2a59a5a1686278e68f5a9daccd9",
+    "wallpaper": "/home/harlik/.config/wpg/wallpapers/4.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0e1122",
+        "foreground": "#c2c3c7",
+        "cursor": "#c2c3c7"
+    },
+    "colors": {
+        "color0": "#0e1122",
+        "color1": "#484C6F",
+        "color2": "#53536A",
+        "color3": "#3A4A85",
+        "color4": "#616799",
+        "color5": "#837C9A",
+        "color6": "#7682B4",
+        "color7": "#c2c3c7",
+        "color8": "#5e6172",
+        "color9": "#484C6F",
+        "color10": "#53536A",
+        "color11": "#3A4A85",
+        "color12": "#616799",
+        "color13": "#837C9A",
+        "color14": "#7682B4",
+        "color15": "#c2c3c7"
+    }
+}
