@@ -6,7 +6,10 @@ if [ -f "$CURRENT_WALL" ]; then
     wallpaper=$(cat "$CURRENT_WALL")
 
     if [ -f "$wallpaper" ]; then
-        sleep 1
+        for i in $(seq 1 50); do
+            hyprctl hyprpaper listloaded &>/dev/null && break
+            sleep 0.2
+        done
         hyprctl hyprpaper unload all
         hyprctl hyprpaper preload "$wallpaper"
 
@@ -14,5 +17,7 @@ if [ -f "$CURRENT_WALL" ]; then
         for monitor in $monitors; do
             hyprctl hyprpaper wallpaper "$monitor,$wallpaper"
         done
+
+        wal --theme gray -n -q
     fi
 fi

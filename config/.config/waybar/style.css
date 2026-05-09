@@ -1,9 +1,9 @@
-@import "/home/harlik/.cache/wal/colors-waybar.css";
+/* ── iOS 26 Glass Bar ── */
 
 * {
-  font-family: "JetBrains Mono";
-  font-weight: 700;
-  font-size: 13px;
+  font-family: "SF Pro Rounded", "JetBrainsMono Nerd Font", sans-serif;
+  font-weight: 900;
+  font-size: 12px;
   text-shadow: none;
   border: none;
   border-radius: 0;
@@ -14,24 +14,23 @@
 
 #waybar {
   background-color: transparent;
-  border-radius: 12px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
 
 tooltip {
   margin: 2px;
-  border-radius: 12px;
-  background-color: alpha(@background, 0.4);
+  border-radius: 14px;
+  background-color: alpha(#0d0d1a, 0.75);
+  padding: 0;
 }
 
 tooltip label {
-  color: @foreground;
-  font-size: 12px;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  color: alpha(white, 0.9);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
 }
 
-/* ── Islands ── */
+/* ── Layout ── */
 .modules-right,
 .modules-left,
 .modules-center {
@@ -40,54 +39,74 @@ tooltip label {
   margin: 0;
 }
 
-#left,
-#lang,
+/* ── Glass Pills ── */
+#arch,
+#trays,
 #hardware,
 #right,
 #power,
-#workspaces {
-  background: @background;
+#workspaces,
+#clock {
+  background: alpha(white, 0.08);
+  border: 1px solid alpha(white, 0.1);
   border-radius: 12px;
-  padding: 2px 10px;
+  padding: 0 12px;
+  margin: 3px 2px;
+  color: #ffffff;
+  transition: background 200ms ease, border-color 200ms ease;
 }
 
-#power {
-  padding-left: 6px;
+/* ── Arch Icon ── */
+#custom-arch {
+  color: #ffffff;
+  font-size: 13px;
+  padding: 0 3px 0 0;
 }
-
 
 /* ── Workspaces ── */
+#workspaces {
+  padding: 0 2px;
+}
+
 #workspaces button {
-  padding: 2px 10px;
+  padding: 0 6px;
+  margin: 3px 1px;
+  min-width: 24px;
+  border-radius: 4px;
   background-color: transparent;
-  color: @color7;
+  color: alpha(white, 0.45);
+  transition: all 200ms ease;
+}
+
+#workspaces button label {
+  min-width: 10px;
 }
 
 #workspaces button.active {
-  color: @foreground;
-  background-color: @color2;
-  padding: 0 14px;
-  border-radius: 12px;
+  color: #161616;
+  background-color: #7FA8A4;
+  padding: 0 6px;
+  min-width: 24px;
+  border-radius: 6px;
 }
 
 #workspaces button.active:hover {
-  background-color: alpha(@color2, 0.5);
-  padding: 0 14px;
-  border-radius: 12px;
+  color: #161616;
+  background-color: alpha(#7FA8A4, 0.8);
   box-shadow: none;
 }
 
 #workspaces button:hover {
-  background-color: alpha(@color2, 0.3);
-  border: 0;
-  border-radius: 12px;
-  padding: 0 10px;
+  background-color: alpha(white, 0.1);
+  border-radius: 8px;
   box-shadow: none;
+  color: alpha(white, 0.75);
 }
 
 #workspaces button.urgent {
-  background-color: @color3;
-  border-radius: 12px;
+  background-color: alpha(#FF3B30, 0.4);
+  border-radius: 8px;
+  color: #ffffff;
 }
 
 button {
@@ -99,23 +118,31 @@ button:hover {
   background: inherit;
 }
 
-button.focused {
-  background-color: @color3;
-  border-radius: 12px;
+/* ── Clock ── */
+#clock {
+  padding: 0 14px;
+  color: #ffffff;
 }
 
-/* ── Module colors ── */
-#clock,
+/* ── Module defaults ── */
 #battery,
 #network,
 #pulseaudio,
 #backlight,
 #bluetooth,
 #custom-exit {
-  color: @foreground;
+  color: #ffffff;
   padding: 0 8px;
+  font-size: 12px;
 }
 
+#cpu, #memory, #temperature, #language {
+  color: alpha(white, 0.65);
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+/* ── Hover ── */
 #clock:hover,
 #backlight:hover,
 #pulseaudio:hover,
@@ -125,43 +152,111 @@ button.focused {
 #language:hover,
 #bluetooth:hover,
 #network:hover,
-#battery:hover,
-#custom-exit:hover {
-  background-color: alpha(@color9, 0.3);
-  border-radius: 12px;
+#battery:hover {
+  background-color: alpha(white, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
 }
 
-#pulseaudio.muted { color: @color8; }
-#window            { color: @foreground; }
+/* ── Pill hover ── */
+#arch:hover,
+#trays:hover,
+#hardware:hover,
+#right:hover,
+#clock:hover {
+  background: alpha(white, 0.14);
+  border-color: alpha(white, 0.18);
+}
 
+/* ── Muted ── */
+#pulseaudio.muted {
+  color: alpha(white, 0.3);
+}
+
+/* ── Battery states ── */
 #battery.charging,
 #battery.plugged {
-  color: @color14;
+  color: #30D158;
+}
+
+#battery.warning:not(.charging) {
+  color: #FF9F0A;
 }
 
 #battery.critical:not(.charging) {
-  color: #f53c3c;
-  animation: blink-hw 1s ease infinite;
+  color: #FF3B30;
+  animation: blink 1s ease infinite;
 }
 
-#cpu, #memory, #temperature, #language {
-  color: alpha(@foreground, 0.6);
-  padding: 0 6px;
-}
-
+/* ── Temperature states ── */
 #temperature.warning {
-  color: #fab387;
+  color: #FF9F0A;
 }
 
 #temperature.critical {
-  color: #f53c3c;
-  animation: blink-hw 1s ease infinite;
+  color: #FF3B30;
+  animation: blink 1s ease infinite;
 }
 
-#custom-separator {
-  color: @color1;
+/* ── Power button ── */
+#power {
+  padding: 0 8px;
 }
 
-@keyframes blink-hw {
-  50% { opacity: 0.6; }
+#power:hover {
+  background: alpha(#FF3B30, 0.2);
+  border-color: alpha(#FF3B30, 0.3);
+}
+
+#custom-exit {
+  font-size: 12px;
+}
+
+/* ── Tray ── */
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > widget > button {
+  padding: 0 3px;
+  margin: 0 1px;
+  border-radius: 6px;
+  background: transparent;
+  transition: all 150ms ease;
+}
+
+#tray > widget > button:hover {
+  background-color: alpha(white, 0.2);
+}
+
+#tray menu, menu {
+  margin: 6px;
+  border-radius: 14px;
+  color: alpha(white, 0.9);
+  background-color: alpha(#0d0d1a, 0.8);
+  border: none;
+  padding: 6px;
+}
+
+#tray menu > *, menu > * {
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 1px 0;
+  font-size: 10px;
+  font-weight: 600;
+  transition: all 150ms ease;
+}
+
+#tray menu > *:hover, menu > *:hover {
+  background-color: alpha(white, 0.15);
+}
+
+#tray menu separator, menu separator {
+  background-color: alpha(white, 0.08);
+  margin: 4px 8px;
+  min-height: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
 }

@@ -3,7 +3,7 @@
 
 /* ---- Global Properties ---- */
 * {
-    font:                        "JetBrainsMono Nerd Font 12";
+    font:                        "SF Pro Rounded 12";
 
     bg:                          @background;
     fg:                          @foreground;

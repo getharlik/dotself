@@ -1,25 +1,23 @@
 {
-    "margin-top": 6,
+    "margin-top": 4,
     "margin-left": 6,
     "margin-right": 6,
-    "spacing": 6,
+    "spacing": 4,
     "height": 26,
     "layer": "top",
     "reload_style_on_change": true,
 
-    "group/left": {
+    "group/arch": {
         "orientation": "horizontal",
         "modules": [
-            "clock",
-            // "backlight", 
-            "pulseaudio"
+            "custom/arch"
         ]
     },
 
-    "group/lang": {
+    "group/trays": {
         "orientation": "horizontal",
         "modules": [
-            "hyprland/language"
+            "tray"
         ]
     },
 
@@ -36,8 +34,10 @@
     "group/right": {
         "orientation": "horizontal",
         "modules": [
-            "bluetooth",
-            "network"
+            "hyprland/language",
+            "pulseaudio",
+            "network",
+            "bluetooth"
         ]
     },
 
@@ -49,11 +49,12 @@
     },
 
     "modules-left": [
-        "group/left",
-        "group/lang"
+        "group/arch",
+        "hyprland/workspaces",
+        "group/trays"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "clock"
     ],
     "modules-right": [
         "group/hardware",

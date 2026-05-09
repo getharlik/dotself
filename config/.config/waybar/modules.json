@@ -1,31 +1,43 @@
 {
 
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": false
+    },
+
     "custom/separator": {
         "format": " |"
     },
 
-
     "clock": {
-        "format": "  {:%I:%M %p}",
+        "format": "󰥔    {:%I:%M %p}",
         "tooltip": true,
-        "tooltip-format": "{:%a, %D}",
+        "tooltip-format": "{:%A, %B %d %Y}",
         "on-click": "hyprctl dispatch exec '[float; size 500 280] kitty -e tty-clock -c'"
     },
     "backlight": {
         "scroll-step" : 1,
         "format": "{icon} {percent}%",
         "tooltip": false,
-        "format-icons": ["","","","","","","","","","","","","","",""]
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
     "pulseaudio": {
         "scroll-step": 1,
-        "format": "{icon}  {volume}%",
-        "format-icons": ["", "", ""],
+        "format": "{icon}    {volume}%",
+        "format-muted": "󰝟    {volume}%",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
         "tooltip-format": "{desc}",
         "on-click": "pavucontrol"
     },
-
-
+    "tray": {
+        "icon-size": 13,
+        "spacing": 6,
+        "icons": {
+            "vesktop": "discord"
+        }
+    },
 
     "hyprland/workspaces": {
       "on-click": "activate",
@@ -37,59 +49,60 @@
         "HDMI-A-1": [6,7,8]
       }
     },
-  
-
 
     "custom/exit": {
-        "format": "",
+        "format": "⏻",
         "tooltip-format": "Power menu",
         "on-click": "~/.config/waybar/scripts/power.sh"
     },
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
+        "format": "{icon}    {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰂄  {capacity}%",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "states": {
             "warning": 30,
             "critical": 15
         },
         "tooltip-format-charging": "Health: {health}\n{timeTo}",
-        "tooltip=format": "Health: {health}"
+        "tooltip-format": "Health: {health}"
     },
     "network": {
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "󰈀 ",
-        "format-disconnected": " ⚠ ",
+        "format-wifi": "󰤨    {essid}",
+        "format-ethernet": "󰌗",
+        "format-disconnected": "󰤭    Disconnected",
         "tooltip-format": "{frequency} GHz | {signalStrength}% Strength\n{ifname} via {gwaddr}",
         "tooltip-format-ethernet": "{ifname} via {gwaddr}\n{cidr} IP(V4)",
         "tooltip-format-disconnected": "Disconnected"
     },
     "bluetooth": {
-        "format-on": "󰂰",
+        "format-on": "󰂯",
         "format-off": "󰂲",
         "format-disabled": "󰂲",
-        "format-connected": "󰂰",
+        "format-connected": "󰂱  {num_connections}",
         "tooltip": true,
         "tooltip-format-on": "Active",
         "tooltip-format-off": "Disabled",
-        "tooltip-format-connected": "{device_alias}    {device_battery_percentage}%",
+        "tooltip-format-connected": "{device_alias}  {device_battery_percentage}%",
         "interval": 30,
         "on-click": "blueman-manager"
     },
     "hyprland/language": {
-        "format": "  {short}"
+        // "format": "󰗊    {short}",
+        "format-en": "󰗊",
+        "format-ru": "󰗊   !"
     },
     "temperature": {
         "interval": 30,
-        "format": "{temperatureC}° {icon}",
+        "format": "{temperatureC}°",
         "tooltip": false,
-        "critical-threshold": 90,
-        "format-icons": ["","","","",""]
+        "critical-threshold": 60,
+        "format-critical": "{temperatureC}°"
     },
     "memory": {
         "interval": 30,
-        "format": "{percentage}% ",
-        "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
+        "format": "{percentage}%   󰘚",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
         "states": {
             "warning": 80,
             "critical": 90
@@ -97,7 +110,7 @@
     },
     "cpu": {
         "interval": 30,
-        "format":"{usage}% ",
+        "format": "{usage}%   󰻠",
         "states": {
             "warning": 80,
             "critical": 90
