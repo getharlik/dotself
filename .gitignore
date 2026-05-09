@@ -1,0 +1,19 @@
+# Screenshots
+assets/Assets/Screenshots/
+assets/Assets/Miscellaneous/
+
+
+# Cache and generated files
+*.pyc
+__pycache__/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Wal cache (regenerated)
+config/.config/wal/colors*
+config/.config/wal/schemes/
+
+# WPG generated templates
+config/.config/wpg/templates/

@@ -45,7 +45,11 @@ apply_wallpaper() {
     local wallpaper="$1"
 
     echo "$wallpaper" > "$CURRENT_WALL"
-    wal -i "$wallpaper" --cols16 darken --backend colorthief -n -q
+
+    case "$(basename "$wallpaper")" in
+        15.png) wal --theme gray -n -q ;;
+        *)      wal -i "$wallpaper" --cols16 darken --backend wal --contrast 1.5 -n -q ;;
+    esac
 
     hyprctl hyprpaper unload all
     hyprctl hyprpaper preload "$wallpaper"
