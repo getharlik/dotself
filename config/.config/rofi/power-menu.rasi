@@ -19,7 +19,7 @@
     border-col-bright:           @color12;
     separator:                   @color8;
 
-    border-rad:                  20px;
+    border-rad:                  40px;
 }
 
 /* ---- Window ---- */
@@ -28,8 +28,13 @@ window {
     location:                    center;
     anchor:                      center;
     width:                       250px;
-    border-radius:               @border-rad;
-    background-color:            rgba(45, 45, 45, 0.3);
+    height:                      175px;
+    /* squircle: rofi can only round with circular arcs, so the window itself is
+       transparent and shapes/power-menu.svg (built by squircle.sh, 250x175)
+       paints the body — regenerate it if the size changes */
+    border-radius:               0px;
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/shapes/power-menu.svg", both);
 }
 
 /* ---- Main Layout ---- */

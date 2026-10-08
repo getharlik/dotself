@@ -1,62 +1,90 @@
 {
-
+    // ── Launcher ──────────────────────────────────────────
     "custom/arch": {
         "format": "󰣇",
+        "tooltip-format": "Apps",
+        "on-click": "pkill rofi || rofi -show drun"
+    },
+
+    "custom/wall": {
+        "format": "󰸉",
+        "tooltip-format": "Wallpaper",
+        "on-click": "pkill rofi || ~/Scripts/wall-select.sh"
+    },
+
+    "custom/tray-toggle": {
+        "format": "",
         "tooltip": false
-    },
-
-    "custom/separator": {
-        "format": " |"
-    },
-
-    "clock": {
-        "format": "󰥔    {:%I:%M %p}",
-        "tooltip": true,
-        "tooltip-format": "{:%A, %B %d %Y}",
-        "on-click": "hyprctl dispatch exec '[float; size 500 280] kitty -e tty-clock -c'"
-    },
-    "backlight": {
-        "scroll-step" : 1,
-        "format": "{icon} {percent}%",
-        "tooltip": false,
-        "format-icons": ["󰃞", "󰃟", "󰃠"]
-    },
-    "pulseaudio": {
-        "scroll-step": 1,
-        "format": "{icon}    {volume}%",
-        "format-muted": "󰝟    {volume}%",
-        "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "tooltip-format": "{desc}",
-        "on-click": "pavucontrol"
-    },
-    "tray": {
-        "icon-size": 13,
-        "spacing": 6,
-        "icons": {
-            "vesktop": "discord"
-        }
-    },
-
-    "hyprland/workspaces": {
-      "on-click": "activate",
-      "format": "{name}",
-      "sort-by-number": true,
-      "persistent-only": true,
-      "persistent-workspaces": {
-        "DP-2": [1,2,3,4,5],
-        "HDMI-A-1": [6,7,8]
-      }
     },
 
     "custom/exit": {
         "format": "⏻",
         "tooltip-format": "Power menu",
-        "on-click": "~/.config/waybar/scripts/power.sh"
+        "on-click": "pkill rofi || ~/.config/waybar/scripts/power.sh"
+    },
+
+    // ── Workspaces ────────────────────────────────────────
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace m-1",
+        "on-scroll-down": "hyprctl dispatch workspace m+1",
+        "format": "{name}",
+        "sort-by-number": true,
+        "persistent-only": true,
+        "persistent-workspaces": {
+            "eDP-1": [1, 2, 3, 4, 5, 6],
+            "DP-2": [1, 2, 3, 4, 5],
+            "HDMI-A-1": [6, 7, 8]
+        }
+    },
+
+    // ── Clock ─────────────────────────────────────────────
+    "clock": {
+        "format": "󰥔   {:%I:%M %p}",
+        "format-alt": "󰃭   {:%A, %d %B}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "",
+            "on-scroll": 1,
+            "format": {
+                "today": "<span color='#ffffff'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
+        },
+        "format-alt-click": "click-right",
+        "on-click": "hyprctl dispatch exec '[float; size 500 280] kitty -e tty-clock -c'"
+    },
+
+    // ── Hardware ──────────────────────────────────────────
+    "cpu": {
+        "interval": 10,
+        "format": "󰻠  {usage}%",
+        "states": {
+            "warning": 80,
+            "critical": 90
+        }
+    },
+    "memory": {
+        "interval": 15,
+        "format": "󰘚  {percentage}%",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+        "states": {
+            "warning": 80,
+            "critical": 90
+        }
+    },
+    "temperature": {
+        "interval": 15,
+        "format": "  {temperatureC}°",
+        "critical-threshold": 80,
+        "tooltip": false
     },
     "battery": {
-        "format": "{icon}    {capacity}%",
+        "format": "{icon}  {capacity}%",
         "format-charging": "󰂄  {capacity}%",
         "format-plugged": "󰂄  {capacity}%",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
@@ -65,55 +93,56 @@
             "critical": 15
         },
         "tooltip-format-charging": "Health: {health}\n{timeTo}",
-        "tooltip-format": "Health: {health}"
+        "tooltip-format": "Health: {health}\n{timeTo}"
+    },
+
+    // ── Connectivity / audio ──────────────────────────────
+    "hyprland/language": {
+        "format-en": "󰗊",
+        "format-ru": "󰗊   !",
+        "format-uk": "󰗊   !!"
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{icon}   {volume}%",
+        "format-muted": "󰝟   {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip-format": "{desc}",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "network": {
-        "format-wifi": "󰤨    {essid}",
+        "format-wifi": "{icon}   {essid}",
         "format-ethernet": "󰌗",
-        "format-disconnected": "󰤭    Disconnected",
-        "tooltip-format": "{frequency} GHz | {signalStrength}% Strength\n{ifname} via {gwaddr}",
-        "tooltip-format-ethernet": "{ifname} via {gwaddr}\n{cidr} IP(V4)",
-        "tooltip-format-disconnected": "Disconnected"
+        "format-disconnected": "󰤭",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi": "{signalStrength}% · {frequency} GHz\n{ifname} via {gwaddr}",
+        "tooltip-format-ethernet": "{ifname} via {gwaddr}\n{ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "hyprctl dispatch exec '[float; size 700 500] kitty -e nmtui'"
     },
     "bluetooth": {
         "format-on": "󰂯",
         "format-off": "󰂲",
         "format-disabled": "󰂲",
         "format-connected": "󰂱  {num_connections}",
-        "tooltip": true,
-        "tooltip-format-on": "Active",
-        "tooltip-format-off": "Disabled",
-        "tooltip-format-connected": "{device_alias}  {device_battery_percentage}%",
-        "interval": 30,
+        "tooltip-format-on": "Bluetooth on",
+        "tooltip-format-off": "Bluetooth off",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}  {device_battery_percentage}%",
         "on-click": "blueman-manager"
     },
-    "hyprland/language": {
-        // "format": "󰗊    {short}",
-        "format-en": "󰗊",
-        "format-ru": "󰗊   !"
-    },
-    "temperature": {
-        "interval": 30,
-        "format": "{temperatureC}°",
-        "tooltip": false,
-        "critical-threshold": 60,
-        "format-critical": "{temperatureC}°"
-    },
-    "memory": {
-        "interval": 30,
-        "format": "{percentage}%   󰘚",
-        "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
-        "states": {
-            "warning": 80,
-            "critical": 90
-        }
-    },
-    "cpu": {
-        "interval": 30,
-        "format": "{usage}%   󰻠",
-        "states": {
-            "warning": 80,
-            "critical": 90
+
+    // ── Tray ──────────────────────────────────────────────
+    "tray": {
+        "icon-size": 14,
+        "spacing": 4,
+        "icons": {
+            "vesktop": "discord"
         }
     }
 }

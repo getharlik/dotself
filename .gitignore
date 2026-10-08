@@ -13,6 +13,7 @@ __pycache__/
 
 # Wal cache (regenerated)
 config/.config/wal/colors*
+!config/.config/wal/colorschemes/
 config/.config/wal/schemes/
 
 # WPG generated templates

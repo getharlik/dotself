@@ -22,7 +22,7 @@ configuration {
     border-col-bright:           @color12;
     separator:                   @color8;
 
-    border-rad:                  20px;
+    border-rad:                  40px;
 }
 
 /* ---- Window ---- */
@@ -30,10 +30,13 @@ window {
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    width:                       925px;
-    height:                      222px;
-    border-radius:               @border-rad;
-    background-color:           rgba(45, 45, 45, 0.3);
+    width:                       1024px;   /* overridden by wall-select.sh to fit the screen */
+    height:                      326px;
+    /* squircle: rofi can only round with circular arcs, so the window itself is
+       transparent and wall-select.sh passes a background-image built by
+       squircle.sh to match the width it picks */
+    border-radius:               0px;
+    background-color:            transparent;
 }
 
 /* ---- Main Layout ---- */
@@ -63,7 +66,11 @@ listview {
     cycle:                       true;
     dynamic:                     false;
     scrollbar:                   false;
-    layout:                      horizontal;
+    /* one row of columns: rofi splits the width evenly, so cards stay centred
+       whatever the screen scale; wall-select.sh sets columns to fit */
+    layout:                      vertical;
+    columns:                     5;
+    lines:                       1;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
@@ -100,7 +107,7 @@ element-text {
 }
 
 element-icon {
-    size:                        140px;
+    size:                        240px;   /* card height; 2:3 thumbs keep width at 160px */
     squared:                     false;
     border-radius:               8px;
     horizontal-align:            0.5;

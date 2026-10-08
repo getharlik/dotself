@@ -1,22 +1,32 @@
 {
-    "margin-top": 4,
-    "margin-left": 6,
-    "margin-right": 6,
-    "spacing": 4,
-    "height": 26,
     "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 0,
     "reload_style_on_change": true,
 
-    "group/arch": {
+    // ── Groups ────────────────────────────────────────────
+    "group/launcher": {
         "orientation": "horizontal",
         "modules": [
-            "custom/arch"
+            "custom/arch",
+            "custom/wall"
         ]
     },
 
+    // Chevron that slides the tray open on hover
     "group/trays": {
         "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 200,
+            "transition-left-to-right": true,
+            "children-class": "tray-child"
+        },
         "modules": [
+            "custom/tray-toggle",
             "tray"
         ]
     },
@@ -48,8 +58,9 @@
         ]
     },
 
+    // ── Layout ────────────────────────────────────────────
     "modules-left": [
-        "group/arch",
+        "group/launcher",
         "hyprland/workspaces",
         "group/trays"
     ],
@@ -61,6 +72,6 @@
         "group/right",
         "group/power"
     ],
-    
+
     "include": [ "~/.config/waybar/modules.json" ]
 }
