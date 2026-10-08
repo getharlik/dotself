@@ -15,7 +15,7 @@
 - **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Notifications:** [mako](https://github.com/emersion/mako)
-- **File manager:** [Thunar](https://docs.xfce.org/xfce/thunar/start)
+- **File manager:** [yazi](https://yazi-rs.github.io/)
 - **Editor:** [VSCodium](https://vscodium.com/)
 - **System info:** [fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - **Clock:** [tty-clock](https://github.com/xorg62/tty-clock)
@@ -25,7 +25,7 @@
 
 ```
 sudo pacman -S kitty fish mako rofi waybar fastfetch tty-clock \
-    hyprland hyprlock hyprpaper hyprpicker thunar \
+    hyprland hyprlock hyprpaper hyprpicker yazi \
     brightnessctl playerctl networkmanager network-manager-applet
 yay -S wpgtk python-pywal16 hyprshot vscodium-bin
 ```
