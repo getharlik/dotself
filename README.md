@@ -20,12 +20,11 @@
 - **System info:** [fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - **Clock:** [tty-clock](https://github.com/xorg62/tty-clock)
 - **Theming:** [pywal16](https://github.com/eylles/pywal16) + [wpgtk](https://github.com/deviantfero/wpgtk)
-- **Dotfiles:** [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Install
 
 ```
-sudo pacman -S stow kitty fish mako rofi waybar fastfetch tty-clock \
+sudo pacman -S kitty fish mako rofi waybar fastfetch tty-clock \
     hyprland hyprlock hyprpaper hyprpicker thunar \
     brightnessctl playerctl networkmanager network-manager-applet
 yay -S wpgtk python-pywal16 hyprshot vscodium-bin

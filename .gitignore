@@ -1,6 +1,6 @@
 # Screenshots
-assets/Assets/Screenshots/
-assets/Assets/Miscellaneous/
+Assets/Screenshots/
+Assets/Miscellaneous/
 
 
 # Cache and generated files
@@ -12,9 +12,9 @@ __pycache__/
 .DS_Store
 
 # Wal cache (regenerated)
-config/.config/wal/colors*
-!config/.config/wal/colorschemes/
-config/.config/wal/schemes/
+.config/wal/colors*
+!.config/wal/colorschemes/
+.config/wal/schemes/
 
 # WPG generated templates
-config/.config/wpg/templates/
+.config/wpg/templates/
